@@ -13,6 +13,7 @@ var form = document.getElementById("my-form");
       }).then(response => {
         if (response.ok) {
           status.innerHTML = "Thanks for your submission!";
+          alert('Thanks for your submission! Mayank Will reply Soon to your email!!')
           form.reset()
         } else {
           response.json().then(data => {
@@ -20,11 +21,13 @@ var form = document.getElementById("my-form");
               status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
             } else {
               status.innerHTML = "Oops! There was a problem submitting your form"
+              alert('Oops! There was a problem submitting your form')
             }
           })
         }
       }).catch(error => {
         status.innerHTML = "Oops! There was a problem submitting your form"
+        alert('Oops! There was a problem submitting your form')
       });
     }
     form.addEventListener("submit", handleSubmit)
